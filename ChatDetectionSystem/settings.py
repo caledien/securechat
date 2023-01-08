@@ -141,4 +141,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'noreply.info.securechat@gmail.com'
-EMAIL_HOST_PASSWORD = 'FurkanTugayCagri01'
+EMAIL_HOST_PASSWORD = 'srprvwhozscgdnjw'
