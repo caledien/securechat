@@ -1,5 +1,7 @@
 from django.urls import path
 
+from django.contrib.auth import views as auth_views
+
 from . import views
 
 urlpatterns = [
@@ -11,4 +13,5 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('getMessages/<str:rec>/', views.getMessages, name='getMessages'),
     path('sendMessage/<str:rec>/', views.sendMessage, name='sendMessage'),
+    path('reset_password/', auth_views.PasswordResetView.as_view()),
 ]
