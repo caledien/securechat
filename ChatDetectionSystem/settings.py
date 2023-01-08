@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 
 # Default primary key field type
@@ -131,5 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
-#STATIC_ROOT = 'static'
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
