@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title%}
+Secure Chat | Login
+{% endblock %}
+{% block css%}
+<style>
+</style>
+{% endblock %}
+
+{% block content%}
+
+<section class=" gradient-custom" style="font-family: Poppins;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+          <div class="card" style="border-radius: 1rem;  color: #1a3166; font-weight: 400;" >
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-3">
+  
+                <h2 class="mb-5" style="font-weight: 500;">Log In</h2>
+ 
+                <form class="form-group" method ="POST">
+                    {% csrf_token %}
+                <div class="form-outline form-dark mb-4">
+                    
+                  <input type="text" name="username" placeholder="Username" class="form-control form-control-lg" />
+                  
+                </div>
+  
+                <div class="form-outline form-dark mb-5">
+                    
+                  <input type="password" placeholder="Password" name="password" class="form-control form-control-lg" />
+                  
+                </div>
+  
+                
+  
+                <button class="btn cssbutton2 btn-lg w-100"  type="submit">Log In</button>
+
+                <p class=" mt-5 mb-0  pb-lg-2"><a href="#!">Forgot password?</a></p>
+               
+  
+              </div>
+  
+              <div>
+                <p class="mb-2 mt-0 text-center">Don't have an account? <a href="/signup">Sign Up</a>
+                </p>
+                <br>
+                <h5 class="text-center text-danger">
+                    {% if messages %}
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                    </h5>
+                    {% endblock %}
+              </div>
+
+            </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
