@@ -45,9 +45,12 @@ config={
   "appId": "1:464189634762:web:a726a15005bf5edd739c33",
   "measurementId": "G-3H7P7CP7T1"
 }
-IST = pytz.timezone('Asia/Kolkata')
+IST = pytz.timezone('Europe/Istanbul')
 firebase=pyrebase.initialize_app(config)
 db=firebase.database()
+
+def banned(request):
+    return render(request,'chatsys/banned.html',{})
 
 def home(request):
     data={}

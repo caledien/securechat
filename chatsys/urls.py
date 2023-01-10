@@ -3,6 +3,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from . import views
+#from ..ban import middleware
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('logout/', views.logOut, name='logout'),
     path('login/', views.logIn, name='login'),
     path('profile/', views.profile, name='profile'),
+    path('banned/', views.banned,  name='banned'),
     path('getMessages/<str:rec>/', views.getMessages, name='getMessages'),
     path('sendMessage/<str:rec>/', views.sendMessage, name='sendMessage'),
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="chatsys/reset_password.html"), name="reset_password"),

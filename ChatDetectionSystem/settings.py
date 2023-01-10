@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-enp&$vouo9nfp_=#8os8)^l8!h6$9l1uf_s@g+^cek3(kt1eav
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_URL = "/banned"
+
+#WARNS_THRESHOLD = 4
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'ban',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +54,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'ban.middleware.BanAuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'ban.middleware.BanAuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -123,7 +133,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -133,8 +142,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
